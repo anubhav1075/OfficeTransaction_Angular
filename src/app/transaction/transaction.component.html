@@ -1,0 +1,49 @@
+<div class="container">
+    <div>
+        <h2>
+            Office Transactions
+        </h2>
+    </div>
+    <div class="button-container">
+        <button (click)="toAddTransaction()">
+            + Add Transaction
+        </button>
+    </div>
+    
+    <div>
+        <table>
+            <thead>
+                <!-- <tr>
+                    <th><div>
+                        <h2>
+                            Office Transaction
+                        </h2>
+                    </div></th><th></th><th></th><th></th><th><div>
+                        <button (click)="toAddTransaction()">
+                            + Add Transaction
+                        </button>
+                    </div></th>
+                </tr>
+                <tr>
+                    <th></th><th></th><th></th><th></th><th></th>
+                </tr> -->
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Credit</th>
+                    <th>Debit</th>
+                    <th>Running Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let transaction of transactions">
+                    <td>{{transaction.transactionDate | date:'MM/dd/yyyy'}}</td>
+                    <td>{{transaction.description}}</td>
+                    <td>{{transaction.credit? transaction.amount : ''}}</td>
+                    <td>{{transaction.debit? transaction.amount : ''}}</td>
+                    <td>{{transaction.balance}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
